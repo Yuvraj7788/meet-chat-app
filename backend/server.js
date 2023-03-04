@@ -5,7 +5,7 @@ const { chats } = require("./data/data");
 const app = express();
 
 app.get("/",(req,res) => {
-    res.send("API is running successfully");
+    res.send("API is running successfully bro");
 });
 
 app.get('/api/chat', (req,res) => {
