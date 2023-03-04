@@ -1,17 +1,23 @@
-const { response } = require("express");
 const express = require("express");
+const dotenv = require("dotenv");
+const { chats } = require("./data/data");
 
-const app = express()
+const app = express();
 
 app.get("/",(req,res) => {
-    res.send("API is running");
+    res.send("API is running successfully");
+});
+
+app.get('/api/chat', (req,res) => {
+    res.send(chats);
+});
+
+app.get("/api/chat/:id",(req,res) => {
+    const singleChat = chats.find((c) => c._id === req.params.id);
+    res.send(singleChat);
 })
 
-app.get("/",(req,res) =>{
-    response.send("API is running");
-} );
+const PORT = process.env.PORT || 5000
 
-// app.get();
-
-app.listen(5000,console.log("Server started on port 5000"));
+app.listen(PORT,console.log('Server started on port ${PORT}'));
 
