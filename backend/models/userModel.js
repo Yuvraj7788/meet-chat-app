@@ -19,7 +19,7 @@ userModel.methods.matchPassword = async function (enteredPassword) {
 };
 
 userModel.pre('save', async function (next){
-    if(!this.modified){
+    if(!this.isModified){
         next();
     }
 
