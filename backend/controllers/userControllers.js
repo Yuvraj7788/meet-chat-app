@@ -42,7 +42,11 @@ const authUser = asyncHandler( async(req,res) => {
     const {email,password} = req.body;
     const user = await User.findOne({email});
 
+<<<<<<< HEAD
     if (user && (await user.matchPassword(passsword))){
+=======
+    if (user && (await user.matchPassword(password))){
+>>>>>>> 460eba306d3688b5e24036673ccba60ce0acbfe4
         res.json({
             _id: user._id,
             name: user.name,
@@ -56,4 +60,23 @@ const authUser = asyncHandler( async(req,res) => {
     }
 });
 
+<<<<<<< HEAD
 module.exports = { registerUser, authUser };
+=======
+
+const allUsers = asyncHandler(async (req, res) =>{          // we are defining function to list allUsers
+    const keyword = req.query .search ? {
+        $or: [
+            { name: {$regex: req.query.search, $options: "i"} },
+            {email : {$regex: req.query.search, $options: "i" }},    // or operator is used here
+        ]
+    }   
+    :{};                          // generated the query and saved it in a const work named as "Keyword"
+
+                                       // printing the output of the result given by Query which was saved on "keyword".
+    const users = await User.find(keyword).find({_id:{$ne: req.user._id } } ); 
+    res.send(users);
+});
+
+module.exports = { registerUser, authUser, allUsers };
+>>>>>>> 460eba306d3688b5e24036673ccba60ce0acbfe4
