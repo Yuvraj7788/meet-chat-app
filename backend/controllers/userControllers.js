@@ -42,11 +42,7 @@ const authUser = asyncHandler( async(req,res) => {
     const {email,password} = req.body;
     const user = await User.findOne({email});
 
-<<<<<<< HEAD
-    if (user && (await user.matchPassword(passsword))){
-=======
     if (user && (await user.matchPassword(password))){
->>>>>>> 460eba306d3688b5e24036673ccba60ce0acbfe4
         res.json({
             _id: user._id,
             name: user.name,
@@ -60,9 +56,6 @@ const authUser = asyncHandler( async(req,res) => {
     }
 });
 
-<<<<<<< HEAD
-module.exports = { registerUser, authUser };
-=======
 
 const allUsers = asyncHandler(async (req, res) =>{          // we are defining function to list allUsers
     const keyword = req.query .search ? {
@@ -79,4 +72,3 @@ const allUsers = asyncHandler(async (req, res) =>{          // we are defining f
 });
 
 module.exports = { registerUser, authUser, allUsers };
->>>>>>> 460eba306d3688b5e24036673ccba60ce0acbfe4

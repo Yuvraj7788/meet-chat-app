@@ -9,11 +9,7 @@ import { useHistory} from "react-router-dom";
 const Login = () => {
 
     const [show, setShow] = useState(false);
-<<<<<<< HEAD
-    // const [name, setName] = useState();
-=======
     const [name, setName] = useState();
->>>>>>> 460eba306d3688b5e24036673ccba60ce0acbfe4
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const toast = useToast();
@@ -74,8 +70,6 @@ const Login = () => {
   };
 
     return  <VStack spacing="20px">
-<<<<<<< HEAD
-=======
         <FormControl id='first-name' isRequired>
             
             <Input 
@@ -83,7 +77,6 @@ const Login = () => {
                 onChange={(e)=>setName(e.target.value)}
             />
         </FormControl>
->>>>>>> 460eba306d3688b5e24036673ccba60ce0acbfe4
         <FormControl id='email' isRequired>
             
             <Input 
@@ -114,10 +107,6 @@ const Login = () => {
             width="100%"
             style={{marginTop:15}}
             onClick={submitHandler}
-<<<<<<< HEAD
-            isLoading={loading}
-=======
->>>>>>> 460eba306d3688b5e24036673ccba60ce0acbfe4
         >
             Sign Up
         </Button>
